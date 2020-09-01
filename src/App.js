@@ -32,17 +32,6 @@ class App extends Component {
         }
       )
   }
-
-  // openSingleBook() {
-  //   fetch("")
-  //     .then(res => res.json())
-  //     .then(
-  //       (result) => {
-  //         this.setState({
-  //           isLoaded: true,
-  //           book: result.data
-  //       });
-  // }
     
   render() {
     return ( 

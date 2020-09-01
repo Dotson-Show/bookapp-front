@@ -26,7 +26,7 @@ function Books({states}) {
                         <small>Comment Count: </small>
                         <small className="text-white ml-3">{book.commentCount}</small>
                         </div>
-                        <button className="btn btn-primary mr-2 mb-2" onClick={openSingleBook}>View</button>
+                        <button className="btn btn-primary mr-2 mb-2">View</button>
                         <button className="btn btn-info mb-2">Characters</button>
                     </div>
                 </div>
