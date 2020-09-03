@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import NavBar from './component/navbar'
 import Booklist from './component/booklist'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  // Link
+} from "react-router-dom";
+import Footer from './component/Footer';
+import Book from './component/book';
+
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +19,7 @@ class App extends Component {
       isLoaded: false,
       book: '',
       books: [],
-      search: ''
+      search: '',
     }
   }
   
@@ -21,7 +30,7 @@ class App extends Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            books: result.data
+            books: result.data,
           });
         },
         (error) => {
@@ -34,10 +43,22 @@ class App extends Component {
   }
     
   render() {
+    
     return ( 
       <div>
-        <NavBar />
-        <Booklist states={this.state}/>
+        <Router>
+          <NavBar />
+          
+          <Switch>
+            <Route exact path="/">
+              <Booklist states={this.state}/>
+            </Route>
+            <Route path="/book/:id">
+              <Book />
+            </Route>
+          </Switch>
+        </Router>
+        <Footer />
       </div>                
     );
   }

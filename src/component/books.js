@@ -1,4 +1,5 @@
 import React from 'react'
+import { Spinner } from 'reactstrap';
 
 function Books({states}) {
     const { error, isLoaded, books } = states; 
@@ -7,7 +8,7 @@ function Books({states}) {
     if (error) {
         listedBooks = <div className = "danger" > Error: { error.message } </div>
     } else if (!isLoaded) {
-        listedBooks = <div className = "info" ><span>Loading.... .... ....</span> </div>
+        listedBooks = <Spinner color="primary"/>
     } else {
         listedBooks =
         <div className="row justify-content-center">
@@ -23,11 +24,14 @@ function Books({states}) {
                         <small className="text-white ml-3">{book.authors}</small>
                         </div>
                         <div className="form-group">
-                        <small>Comment Count: </small>
-                        <small className="text-white ml-3">{book.commentCount}</small>
+                        <small>Comments: </small>
+                        <small className="text-white ml-3">
+                            <span className="badge badge-light">{book.commentCount}</span>
+                            
+                        </small>
                         </div>
-                        <button className="btn btn-primary mr-2 mb-2">View</button>
-                        <button className="btn btn-info mb-2">Characters</button>
+                        <a href={`/book/${book.id}`} className="btn btn-primary mr-2 mb-2">View</a>
+                        <a href="" className="btn btn-info mb-2">Characters</a>
                     </div>
                 </div>
             </div>
