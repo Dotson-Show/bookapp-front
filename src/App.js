@@ -24,7 +24,7 @@ class App extends Component {
   }
   
   componentDidMount() {
-    fetch("http://127.0.0.1/bookstore/backendApp/api/book/read.php")
+    fetch("http://booksapp-backend.herokuapp.com/api/book/read.php")
       .then(res => res.json())
       .then(
         (result) => {
